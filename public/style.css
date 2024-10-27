@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+@font-face {
+  font-family: "AlphaCentauri"; /* Nom de la police à utiliser dans font-family */
+  src: url("fonts/ALPHACENTAURI-MVY4P.TTF") format("truetype"); /* Chemin vers la police */
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./fonts/roboto/Roboto-Regular.ttf");
+}
+/*-------------------BODY-------------------------------------- */
+body {
+  display: flex;
+  flex-direction: column;
+  color: #b9b6b1;
+}
+/*----------------------HEADER--------------------------------------- */
+
+header {
+  height: 80px;
+  background: linear-gradient(180deg, #0b0033, #1c1c3a, #000814);
+  border-radius: 4%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative; /* Assure que le ::before soit positionné correctement */
+}
+
+header::before {
+  content: ""; /* Nécessaire pour afficher le pseudo-élément */
+  position: absolute; /* Positionne l'élément avant */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/public/pictures/stars.jpg");
+  background-size: fill;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6; /* Ajuste la transparence */
+  z-index: 1; /* Assure que le pseudo-élément se place derrière le contenu du header */
+}
+
+.night {
+  background: linear-gradient(180deg, #0b0033, #1c1c3a, #000814);
+}
+header.sunrise::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: none; /* Supprime l'image de fond */
+}
+.sunrise {
+  background: linear-gradient(180deg, #ffffff, #b9b6b1, whitesmoke);
+}
+
+.text-light {
+  color: #b9b6b1;
+}
+.text-dark {
+  color: #1c1c3a;
+}
+.spaceship {
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  z-index: 3;
+}
+.spaceship img {
+  border-radius: 30%;
+  cursor: pointer; /* Affiche un pointeur sur l'image de la capsule fermée */
+}
+.spaceship .closedCapsule {
+  height: 60px;
+  width: 60px;
+}
+.spaceship .openedCapsule {
+  height: 60px;
+  width: 66px;
+}
+/*----------------------MAIN------------------------------------- */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Pour que la vidéo couvre toute la zone */
+  filter: brightness(0.7);
+}
+.video-bg-white,
+.video-bg-black {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Utilise toute la largeur de la fenêtre */
+  height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+  object-fit: cover;
+}
+.profile img {
+  height: 260px;
+  width: 220px;
+}
+.profile {
+  z-index: 3;
+  display: flex;
+  flex-direction: row; /* Change à 'column' si tu veux empiler image et texte verticalement */
+  align-items: center;
+  justify-content: center;
+  gap: 80px; /* Espace entre l'image et la présentation */
+  text-align: center; /* Pour centrer le texte dans la présentation */
+}
+
+.profile img {
+  height: 260px;
+  width: 220px;
+  object-fit: cover;
+}
+
+.presentation {
+  font-size: 50px;
+  font-family: "AlphaCentauri", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le texte */
+  text-align: center;
+}
+
+.rotateText {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.rotateText div {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+/*--------------------MEDIA QUERIES------------------------------------*/
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column; /* Pour empiler l'image et la présentation sur petits écrans */
+  }
+
+  .presentation {
+    font-size: 24px; /* Réduit la taille de la police */
+  }
+
+  .profile img {
+    height: 180px;
+    width: 140px;
+  }
+}

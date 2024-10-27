@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/style.css" />
+    <link
+      rel="shortcut icon"
+      id="favicon"
+      href="/public/pictures/Tekkadan_logo.webp"
+      type="image/x-icon"
+    />
+    <title>H -portfolio</title>
+  </head>
+  <body>
+    <header>
+      <div class="spaceship">
+        <img
+          class="closedCapsule"
+          src="/public/pictures/ClosedCapsule.png"
+          alt="dragonballZ_spaceship_closed"
+        />
+        <img
+          src="/public/pictures/OpenedCapsule.png"
+          alt="dragonballZ_spaceship_opened"
+          class="openedCapsule"
+          hidden
+        />
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="video-bg-black">
+          <video autoplay loop playsinline muted id="video-black">
+            <source
+              src="/public/videos/black_hexagon_loop.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div class="video-bg-white" hidden>
+          <video autoplay loop playsinline muted id="video-white">
+            <source
+              src="/public/videos/white_hexagon_loop.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </div>
+      <div class="profile">
+        <img
+          src="/public/pictures/portrait.png"
+          alt="photo_d'Hassan"
+          class="photoN"
+        />
+        <img
+          src="/public/pictures/portraitL.png"
+          alt="photo_d'Hassan"
+          class="photoL"
+          hidden
+        />
+        <div class="presentation">
+          <h1>Hassan LAYEB</h1>
+          <p class="job">Developpeur Mainframe</p>
+          <div class="rotateText">
+            <div><span></span></div>
+            <div><span></span></div>
+            <div><span></span></div>
+            <div><span></span></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
