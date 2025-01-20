@@ -14,7 +14,7 @@ html {
 }
 @font-face {
   font-family: "AlphaCentauri"; /* Nom de la police à utiliser dans font-family */
-  src: url("fonts/ALPHACENTAURI-MVY4P.TTF") format("truetype"); /* Chemin vers la police */
+  src: url("./fonts/ALPHACENTAURI-MVY4P.TTF") format("truetype"); /* Chemin vers la police */
 }
 @font-face {
   font-family: "Roboto";
@@ -51,7 +51,7 @@ header::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/public/pictures/stars.jpg");
+  background-image: url("./public/pictures/stars.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
