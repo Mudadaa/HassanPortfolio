@@ -11,10 +11,13 @@ const app = {
     this.whitePull = document.querySelector(".photoL");
     this.blackPull = document.querySelector(".photoN");
     this.main = document.querySelector("main");
+    this.occupation = document.querySelector("occupation");
     this.wHexa.playbackRate = 0.6;
     this.bHexa.playbackRate = 1.2;
     // Event listener to toggle capsule images and apply other changes
     this.spaceship.addEventListener("click", () => this.handleToggle());
+    this.header.addEventListener("mouseover", () => this.hoverCapsule());
+    this.header.addEventListener("mouseout", () => this.hoverOutCapsule());
   },
 
   handleToggle: function () {
@@ -24,10 +27,20 @@ const app = {
     this.togglePullImage();
     this.toggleMain();
   },
+  handleHover: function () {
+    this.hoverCapsule();
+  },
+  hoverCapsule: function () {
+    this.header.style.opacity = 1;
+  },
+  hoverOutCapsule: function () {
+    this.header.style.opacity = 0.7;
+  },
   toggleMain: function () {
     this.main.classList.toggle("text-dark");
     this.main.classList.toggle("text-light");
   },
+
   toggleCapsule: function () {
     if (this.openCaps.hasAttribute("hidden")) {
       this.closeCaps.setAttribute("hidden", "true");

@@ -9,7 +9,7 @@ html {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 @font-face {
@@ -22,9 +22,11 @@ html {
 }
 /*-------------------BODY-------------------------------------- */
 body {
-  display: flex;
-  flex-direction: column;
   color: #b9b6b1;
+
+  display: flex;
+  flex-direction: column; /* Aligne les sections verticalement */
+  min-height: 100vh; /* Utilise au moins toute la hauteur de la fenêtre */
 }
 /*----------------------HEADER--------------------------------------- */
 
@@ -38,6 +40,8 @@ header {
   justify-content: center;
   z-index: 2;
   position: relative; /* Assure que le ::before soit positionné correctement */
+  opacity: 0.6; /* Ajuste la transparence */
+  transition: 0.3s ease;
 }
 
 header::before {
@@ -48,10 +52,10 @@ header::before {
   width: 100%;
   height: 100%;
   background-image: url("/public/pictures/stars.jpg");
-  background-size: fill;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.6; /* Ajuste la transparence */
+  opacity: 0.3; /* Ajuste la transparence */
   z-index: 1; /* Assure que le pseudo-élément se place derrière le contenu du header */
 }
 
@@ -98,6 +102,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1;
 }
 video {
   width: 100%;
@@ -129,8 +134,8 @@ video {
 }
 
 .profile img {
-  height: 260px;
-  width: 220px;
+  height: 300px;
+  width: 280px;
   object-fit: cover;
 }
 
@@ -142,16 +147,135 @@ video {
   align-items: center; /* Centre le texte */
   text-align: center;
 }
+.occupation {
+  display: flex; /* Aligne les enfants horizontalement */
+  flex-direction: row; /* Assure un alignement en ligne */
+  justify-content: space-between; /* Place les éléments aux extrémités avec de l'espace entre eux */
+  align-items: center; /* Centre les éléments verticalement */
+  text-align: center;
+  z-index: 20; /* Pour superposer correctement si nécessaire */
+  height: max-content; /* Adapte la hauteur au contenu */
+  font-family: "Roboto", sans-serif; /* Applique la police */
+  margin: 100px 80px; /* Marge horizontale */
+}
 
+.webZone a,
+.mainZone a {
+  font-size: 60px; /* Taille du texte */
+  display: flex; /* Rend le lien un élément flexible */
+  justify-content: center; /* Centre le contenu dans le lien */
+  align-items: center; /* Centre verticalement */
+  text-decoration: none; /* Supprime le soulignement */
+  color: #b9b6b1; /* Couleur du texte */
+  background-color: rgba(245, 245, 220, 0.421); /* Couleur d'arrière-plan */
+  padding: 10px 20px; /* Ajoute de l'espace interne pour une meilleure lisibilité */
+  border-radius: 1px; /* Arrondit légèrement les bords */
+  transition: all 0.6s ease; /* Transition fluide pour les effets */
+}
+
+.webZone a:hover,
+.mainZone a:hover {
+  background-color: #d9d5d0e0; /* Change la couleur de fond au survol */
+  color: #000; /* Change la couleur du texte au survol */
+  transform: scale(1.05); /* Agrandit légèrement au survol */
+  transition: all 0.6s ease; /* Transition fluide pour les effets */
+}
+.webZone a,
+.mainZone a {
+  color: #1c1c3a;
+}
 .rotateText {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 3rem; /* Taille fixe pour voir un mot à la fois */
+  overflow: hidden;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
 }
 
 .rotateText div {
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
+  font-size: 49px;
+  height: fit-content;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  opacity: 0; /* Cache chaque mot par défaut */
+  transform: translateY(-100%); /* Position de départ en dehors de la vue */
+  animation: rotaText 9s ease-in-out infinite;
+}
+.rotateText span {
+  height: 50px;
+  font-size: 49px;
+}
+
+@keyframes rotaText {
+  0%,
+  20% {
+    opacity: 0;
+    transform: translateY(0); /* Mot visible */
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0); /* Mot visible */
+  }
+  50% {
+    opacity: 0; /* Commence à disparaître */
+    transform: translateY(60%); /* Le mot commence à descendre */
+  }
+  100% {
+    opacity: 0; /* Mot complètement invisible */
+    transform: translateY(100%); /* Mot sorti de la vue */
+  }
+}
+
+/* Délais spécifiques pour chaque mot */
+.rotateText div:nth-child(1) {
+  animation-delay: 1s; /* Persévérant */
+}
+.rotateText div:nth-child(2) {
+  animation-delay: 4s; /* Créatif */
+}
+.rotateText div:nth-child(3) {
+  animation-delay: 7s; /* Curieux */
+}
+.rotateText div:nth-child(4) {
+  animation-delay: 12s; /* Mot vide */
+}
+
+footer {
+  display: flex;
+  flex-direction: row; /* Aligne les enfants verticalement */
+  justify-content: space-between;
+  align-items: center; /* Centre les enfants horizontalement */
+  height: auto; /* Adapte la hauteur au contenu */
+  padding: 20px; /* Ajoute un espacement interne */
+  color: #ffffff; /* Couleur du texte */
+  font-family: "AlphaCentauri", sans-serif;
+  z-index: 5; /* Assure que le footer est au-dessus des autres éléments */
+  margin: 0px 60px; /* Marge horizontale */
+}
+
+footer #socials {
+  background-color: #0a66c2;
+  font-size: 60px;
+}
+
+footer .cv {
+  background-color: brown; /* Couleur de fond du footer */
+  font-size: 60px;
+}
+
+footer a {
+  color: #ffffff; /* Couleur des liens */
+  text-decoration: none; /* Supprime le soulignement */
+}
+
+.cv a:hover,
+#socials a:hover {
+  transform: scale(1.04);
+  transition: all ease 0.6s;
 }
 
 /*--------------------MEDIA QUERIES------------------------------------*/
