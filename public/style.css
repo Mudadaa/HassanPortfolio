@@ -164,12 +164,12 @@ video {
   font-size: 60px; /* Taille du texte */
   display: flex; /* Rend le lien un élément flexible */
   justify-content: center; /* Centre le contenu dans le lien */
-  align-items: center; /* Centre verticalement */
+  color: #1c1c3a;
   text-decoration: none; /* Supprime le soulignement */
   color: #b9b6b1; /* Couleur du texte */
   background-color: rgba(245, 245, 220, 0.421); /* Couleur d'arrière-plan */
   padding: 10px 20px; /* Ajoute de l'espace interne pour une meilleure lisibilité */
-  border-radius: 1px; /* Arrondit légèrement les bords */
+  border-radius: 3px; /* Arrondit légèrement les bords */
   transition: all 0.6s ease; /* Transition fluide pour les effets */
 }
 
@@ -180,10 +180,7 @@ video {
   transform: scale(1.05); /* Agrandit légèrement au survol */
   transition: all 0.6s ease; /* Transition fluide pour les effets */
 }
-.webZone a,
-.mainZone a {
-  color: #1c1c3a;
-}
+
 .rotateText {
   display: flex;
   flex-direction: column;
@@ -289,7 +286,36 @@ footer a {
   }
 
   .profile img {
-    height: 180px;
-    width: 140px;
+    height: 300px;
+    width: 280px;
+  }
+  .occupation {
+    display: flex;
+    flex-direction: column;
+  }
+  .webZone a,
+  .mainZone a {
+    font-size: 30px;
+    color: #1c1c3a;
+  }
+  .mainZone a {
+    margin-top: 30px;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20px 80px;
+  }
+  footer #socials {
+    background-color: #0a66c2;
+    font-size: 20px;
+    justify-content: flex-start;
+  }
+
+  footer .cv {
+    background-color: brown; /* Couleur de fond du footer */
+    font-size: 20px;
+    justify-content: flex-end;
   }
 }

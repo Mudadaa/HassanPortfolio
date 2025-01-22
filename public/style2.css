@@ -109,3 +109,18 @@ footer {
 .skills {
   padding-right: 100px;
 }
+
+/*--------------------MEDIA QUERIES------------------------------------*/
+@media (max-width: 768px) {
+  #fah_bike {
+    height: 200px;
+    width: 150;
+  }
+  .container {
+    height: 100%;
+    max-width: 1200px;
+
+    padding: 0;
+    display: flex;
+  }
+}
